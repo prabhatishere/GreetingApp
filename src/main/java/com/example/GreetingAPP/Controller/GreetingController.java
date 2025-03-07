@@ -3,6 +3,7 @@ package com.example.GreetingAPP.Controller;
 import com.example.GreetingAPP.Modal.Greeting;
 import com.example.GreetingAPP.Service.GreetingService;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 =======
 import com.example.GreetingAPP.dto.MessageDTO;
@@ -11,12 +12,37 @@ import org.springframework.http.ResponseEntity;
 >>>>>>> UC5
 import org.springframework.web.bind.annotation.*;
 
+=======
+import com.example.GreetingAPP.dto.MessageDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+>>>>>>> UC6
 @RestController
 @RequestMapping("greet")
 public class GreetingController {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+
+
+
+    //================================UC6=============================================//
+    @GetMapping("/listAll")
+    public List<MessageDTO> listAll(){
+        return greetingService.listAll();
+    }
+
+
+
+
+>>>>>>> UC6
     //=============================UC5============================================//
     @GetMapping("/find/{id}")
     public MessageDTO findById(@PathVariable Long id){
@@ -39,7 +65,10 @@ public class GreetingController {
 
 
 
+<<<<<<< HEAD
 >>>>>>> UC5
+=======
+>>>>>>> UC6
 
 //=========================UC3========================//
 @GetMapping("greets3")
@@ -68,10 +97,14 @@ public class GreetingController {
     //====================UC2===================//
     @Autowired
 <<<<<<< HEAD
+<<<<<<< HEAD
     private GreetingService greetingService;
 =======
 
 >>>>>>> UC5
+=======
+
+>>>>>>> UC6
     @GetMapping("greet2")
     public String getGreeting2(){
         return greetingService.getGreetingMessage();
