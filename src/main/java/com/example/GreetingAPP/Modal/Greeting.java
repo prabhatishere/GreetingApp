@@ -1,4 +1,4 @@
-package com.example.GreetingAPP;
+package com.example.GreetingAPP.Modal;
 
 public class Greeting {
 
