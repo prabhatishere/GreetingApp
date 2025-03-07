@@ -1,11 +1,24 @@
 package com.example.GreetingAPP;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("greet")
 public class GreetingController {
 
+
+    //====================UC2===================//
+    @Autowired
+    private GreetingService greetingService;
+    @GetMapping("greet2")
+    public String getGreeting2(){
+        return greetingService.getGreetingMessage();
+    }
+
+
+
+    //====================UC1===============================//
     // GET method
     @GetMapping
     public Greeting getGreeting() {
