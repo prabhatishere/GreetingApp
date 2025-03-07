@@ -27,10 +27,18 @@ public class GreetingController {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 
 
+=======
+//==================================UC7========================================================//
+    @PostMapping("/edit/{id}")
+    public MessageDTO editById(@RequestBody MessageDTO message, @PathVariable Long id){
+        return greetingService.editById(message, id);
+    }
+>>>>>>> UC7
 
 
     //================================UC6=============================================//
