@@ -1,11 +1,14 @@
 package com.example.GreetingAPP.Modal;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Greeting {
 
     private String message;
 
 =======
+=======
+>>>>>>> UC5
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,17 +20,26 @@ public class Greeting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Automatically generate values for this field
     private Long id;
 
+<<<<<<< HEAD
     private String message;
 
     // Constructor
 >>>>>>> UC4
+=======
+    public  String message;
+
+    // Constructor
+>>>>>>> UC5
     public Greeting(String message) {
         this.message = message;
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Getter and Setter
 =======
+=======
+>>>>>>> UC5
     // Getters and Setters
     public Long getId() {
         return id;
@@ -37,7 +49,10 @@ public class Greeting {
         this.id = id;
     }
 
+<<<<<<< HEAD
 >>>>>>> UC4
+=======
+>>>>>>> UC5
     public String getMessage() {
         return message;
     }
@@ -47,6 +62,9 @@ public class Greeting {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> UC4
+=======
+>>>>>>> UC5

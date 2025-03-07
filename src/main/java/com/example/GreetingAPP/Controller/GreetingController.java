@@ -2,13 +2,44 @@ package com.example.GreetingAPP.Controller;
 
 import com.example.GreetingAPP.Modal.Greeting;
 import com.example.GreetingAPP.Service.GreetingService;
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+import com.example.GreetingAPP.dto.MessageDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+>>>>>>> UC5
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("greet")
 public class GreetingController {
 
+<<<<<<< HEAD
+=======
+    //=============================UC5============================================//
+    @GetMapping("/find/{id}")
+    public MessageDTO findById(@PathVariable Long id){
+
+        return greetingService.findById(id);
+
+    }
+    //=========================UC4====================================//
+    GreetingService greetingService;
+    @Autowired
+    public GreetingController(GreetingService greetingService){
+        this.greetingService=greetingService;
+    }
+    @PostMapping("/add")
+    public ResponseEntity<Greeting> saveGreeting(@RequestBody String message) {
+        Greeting savedGreeting = greetingService.saveGreeting(message);
+        return ResponseEntity.ok(savedGreeting);
+    }
+
+
+
+
+>>>>>>> UC5
 
 //=========================UC3========================//
 @GetMapping("greets3")
@@ -36,7 +67,11 @@ public class GreetingController {
 
     //====================UC2===================//
     @Autowired
+<<<<<<< HEAD
     private GreetingService greetingService;
+=======
+
+>>>>>>> UC5
     @GetMapping("greet2")
     public String getGreeting2(){
         return greetingService.getGreetingMessage();
