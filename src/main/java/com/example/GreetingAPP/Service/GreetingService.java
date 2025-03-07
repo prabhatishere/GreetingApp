@@ -1,17 +1,5 @@
 package com.example.GreetingAPP.Service;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import com.example.GreetingAPP.Modal.Greeting;
-import com.example.GreetingAPP.Repository.GreetingMessageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> UC4
-import org.springframework.stereotype.Service;
-=======
-=======
->>>>>>> UC6
 import com.example.GreetingAPP.Modal.Greeting;
 import com.example.GreetingAPP.Repository.GreetingMessageRepository;
 import com.example.GreetingAPP.dto.MessageDTO;
@@ -19,27 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-<<<<<<< HEAD
->>>>>>> UC5
-=======
 
 import java.util.List;
 import java.util.stream.Collectors;
->>>>>>> UC6
 
 @Service
 public class GreetingService {
     public String getGreetingMessage(){
         return "Hello,World";
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> UC5
-=======
->>>>>>> UC6
     @Autowired
     GreetingMessageRepository greetingMessageRepository;
     // Method to save greeting message
@@ -47,12 +23,6 @@ public class GreetingService {
         Greeting greetingMessage = new Greeting(message);
         return greetingMessageRepository.save(greetingMessage);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> UC4
-=======
-=======
->>>>>>> UC6
 
     public MessageDTO findById(Long id){
         Greeting greeting = greetingMessageRepository.findById(id)
@@ -62,9 +32,6 @@ public class GreetingService {
         messageDTO.setId(greeting.getId());
         return messageDTO;
     }
-<<<<<<< HEAD
->>>>>>> UC5
-=======
     public List<MessageDTO> listAll(){
 
         List<MessageDTO> list = greetingMessageRepository.findAll().stream().map(entity -> {
@@ -89,6 +56,14 @@ public class GreetingService {
 
         return m2;
     }
+    public String delete(Long id){
 
->>>>>>> UC6
+        Greeting m = greetingMessageRepository.findById(id).orElseThrow(() -> new RuntimeException("Cannot find message with given id"));
+
+        greetingMessageRepository.delete(m);
+
+        return "Message Deleted";
+
+    }
+
 }
