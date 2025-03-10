@@ -1,34 +1,26 @@
 package com.example.GreetingAPP.Controller;
-import com.example.GreetingAPP.dto.AuthUserDTO;
-import com.example.GreetingAPP.Service.AuthenticationService;
+import com.example.GreetingAPP.dto.*;
 import com.example.GreetingAPP.Service.EmailService;
-import com.example.GreetingAPP.dto.MailDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import com.example.GreetingAPP.dto.LoginDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.example.GreetingAPP.Interface.I_AuthInterface;
 
 @RestController
 public class AuthenticationController {
     EmailService emailService;
-    AuthenticationService authenticationService;
-
-    public AuthenticationController(EmailService emailService, AuthenticationService authenticationService) {
-        this.emailService = emailService;
-        this.authenticationService = authenticationService;
-    }
+    @Autowired
+            I_AuthInterface iAuthInterface;
 
 //============================UC9(Register and Login for a User)==============================================//
     @PostMapping(path = "/register")
     public String register(@RequestBody AuthUserDTO user){
-
-        return authenticationService.register(user);
+        return iAuthInterface.register(user);
     }
 
     @PostMapping(path ="/login")
     public String login(@RequestBody LoginDTO user){
 
-        return authenticationService.login(user);
+        return iAuthInterface.login(user);
     }
 //===========================UC10(Send Mail)===========================================//
     @PostMapping(path="/sendMail")
@@ -37,7 +29,17 @@ public class AuthenticationController {
     }
 
 
+    //=======================UC11(forgot Passwrod implementation)====================================================================//
+    @PutMapping("forgotPassword/{email}")
+    public AuthUserDTO forgotPassword(@RequestBody PasswordDTO pass, @PathVariable String email){
+        return iAuthInterface.forgotPassword(pass, email);
+    }
 
+//=======================================UC12(Reset Password)=========================================================================//
+    @PutMapping("/resetPassword/{email}")
+    public String resetPassword(@PathVariable String email ,@RequestParam String currentPass, @RequestParam String newPass){
+        return iAuthInterface.resetPassword(email, currentPass, newPass);
+    }
 
 
 }
