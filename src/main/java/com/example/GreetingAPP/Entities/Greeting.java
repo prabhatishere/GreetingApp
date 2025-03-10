@@ -1,4 +1,5 @@
-package com.example.GreetingAPP.Modal;
+package com.example.GreetingAPP.Entities;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,30 +8,31 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Greeting {
-    @Id  // Add this annotation to mark this field as the primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Automatically generate values for this field
-    private Long id;
 
-    public  String message;
+    String message;
 
-    public Greeting(){}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
-    // Constructor
-    public Greeting(String message) {
-        this.message = message;
+    public Greeting(){
     }
 
-    // Getters and Setters
+    public Greeting(String message) {
+        this.message = message;
+        id = null;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
     public void setMessage(String message) {
